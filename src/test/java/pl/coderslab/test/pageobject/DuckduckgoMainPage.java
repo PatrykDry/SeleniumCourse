@@ -1,24 +1,25 @@
 package pl.coderslab.test.pageobject;
 
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class QwantMainPage {
+public class DuckduckgoMainPage {
     private WebDriver driver;
-
-    public QwantMainPage(WebDriver driver) {
+    public DuckduckgoMainPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void enterSearchPhrase(String phraseToSearch) {
+    public void enterSearchPhrase(String phraseToSearch){
         WebElement searchInputBox = this.driver.findElement(By.name("q"));
-        searchInputBox.sendKeys("W pustyni i w puszczy");
-    }
+        searchInputBox.clear();
+        searchInputBox.sendKeys(phraseToSearch);
 
-    public void clickSearchIcon() {
+    }
+    public void clickSearchIcon(){
         WebElement submitButton = this.driver.findElement(
-                By.cssSelector("form[data-testid=mainSearchBar] button[type=submit]")
+                By.cssSelector("#search_button_homepage")
         );
         submitButton.click();
     }
